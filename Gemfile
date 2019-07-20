@@ -54,3 +54,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'ancestry'
 gem 'slim'
+gem 'react-rails'
+gem 'active_model_serializers'
