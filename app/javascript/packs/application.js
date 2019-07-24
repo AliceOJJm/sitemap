@@ -21,8 +21,11 @@ import ReactDOM from 'react-dom'
 import Sitemap from '../components/Sitemap'
 
 document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Sitemap />,
-    document.getElementById('sitemap'),
-  )
+  const container = document.getElementById('sitemap')
+  if (container) {
+    ReactDOM.render(
+      <Sitemap />,
+      container,
+    )
+  }
 })

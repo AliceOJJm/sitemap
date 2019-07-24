@@ -14,9 +14,8 @@
 
 - Run `cp config/database.example.yml config/database.yml` and edit database access config
 - Run `bundle install`
-- Run `rails db:setup`
 - Run `yarn install`
-- Run `bundle install`
+- Run `rails db:setup`
 - Use overmind/foreman to start an application
 
 ## Tests
