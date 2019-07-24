@@ -1,25 +1,27 @@
-# README
+# Sitemap App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirements
 
-Things you may want to cover:
+* Ruby version 2.6.1
 
-* Ruby version
+* Rails version 6.0.0.rc2
 
-* System dependencies
+* Npm, Yarn (Assets are powered by rails assets along with webpack)
 
-* Configuration
+* PostgreSQL 11.3
 
-* Database creation
+## To run the project in development environment:
 
-* Database initialization
+- Run `cp config/database.example.yml config/database.yml` and edit database access config
+- Run `bundle install`
+- Run `rails db:setup`
+- Run `yarn install`
+- Run `bundle install`
+- Use overmind/foreman to start an application
 
-* How to run the test suite
+## Tests
 
-* Services (job queues, cache servers, search engines, etc.)
+Models and controllers are covered with unit tests using RSpec
+Integrational tests with Capybara
 
-* Deployment instructions
-
-* ...
-# sitemap
+- Run rspec spec

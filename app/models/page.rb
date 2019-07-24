@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: pages
+#
+#  id        :bigint(8)        not null, primary key
+#  link_name :string
+#  path_name :string
+#  full_path :string
+#  ancestry  :string
+#
+
 class Page < ApplicationRecord
   has_ancestry
 
@@ -11,7 +22,7 @@ class Page < ApplicationRecord
   protected
 
   def set_full_path
-    self.full_path = "#{parent.full_path}/#{path_name}".gsub('//', '/')
+    self.full_path = "#{parent&.full_path}#{'/' if parent.present?}#{path_name}".gsub('//', '/')
   end
 
   private

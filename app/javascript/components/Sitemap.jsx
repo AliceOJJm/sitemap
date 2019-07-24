@@ -12,17 +12,17 @@ class Sitemap extends React.Component {
   componentDidMount() {
     axios.get('/api/pages.json')
       .then(res => {
-        const pages = res.data
+        const { pages } = res.data
         this.setState({ pages })
       })
   }
 
   renderPage(page, idPrefix) {
-    const id = `${idPrefix}.${_.snakeCase(page.link_name)}`
+    const id = `${idPrefix ? `${idPrefix}.` : ''}${_.snakeCase(page.link_name)}`
     return (
-      <li key={page.id}>
+      <li key={page.id} className="list-group-item">
         <a href={page.full_path} id={id}>{page.link_name}</a>
-        <ul>
+        <ul className="list-group list-group-flush">
           { page.children.map(page => this.renderPage(page, id)) }
         </ul>
       </li>
@@ -32,9 +32,12 @@ class Sitemap extends React.Component {
   render() {
     const { pages } = this.state
     return (
-      <ul>
-        { pages.map(page => this.renderPage(page, _.snakeCase(page.link_name))) }
-      </ul>
+      <div>
+        <h2>Sitemap</h2>
+        <ul className="list-group list-group-flush">
+          { pages.map(page => this.renderPage(page)) }
+        </ul>
+      </div>
     )
   }
 }
